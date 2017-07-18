@@ -201,7 +201,6 @@ def handle_request(request, more_id=None):
             "HEAD": req_process.agents_get
         }
     }
-
     try:
         r_dict = req_parse.parse(request, more_id)
         path = request.path.lower()

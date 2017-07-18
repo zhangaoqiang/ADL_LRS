@@ -154,19 +154,20 @@ def regclient(request):
 
 @login_required()
 @require_http_methods(["GET"])
-def my_statements(request, template="my_statements.html"):
-    stmt_list = Statement.objects.filter(user=request.user).order_by('-timestamp')
-    paginator = Paginator(stmt_list, 25)
-    page = request.GET.get('page')
-
-    try:
-        stmts = paginator.page(page)
-    except PageNotAnInteger:
-        stmts = paginator.page(1)
-    except EmptyPage:
-        stmts = paginator.page(paginator.num_pages)
-
-    context = {'statements': stmts}
+def my_statements(request, template="new_statements.html"):
+    # stmt_list = Statement.objects.filter(user=request.user).order_by('-timestamp')
+    # paginator = Paginator(stmt_list, 25)
+    # page = request.GET.get('page')
+    #
+    # try:
+    #     stmts = paginator.page(page)
+    # except PageNotAnInteger:
+    #     stmts = paginator.page(1)
+    # except EmptyPage:
+    #     stmts = paginator.page(paginator.num_pages)
+    #
+    # context = {'statements': stmts}
+    context = {'statements': ""}
     return render(request, template, context)
 
 
